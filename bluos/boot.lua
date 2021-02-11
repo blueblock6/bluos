@@ -6,10 +6,9 @@ local component = require("component")
 local gpu = component.gpu
 local colors = require("colors")
 
+resolution(80, 25)
+
 function API.fillTable()
-    API.setTable("Boot", boot, 10,20,3,5)  
-    API.setTable("Admin Boot", adminBoot, 25,35,3,5)
-    API.setTable("Options", options, 40,50,8,10)
     API.setTable("Back", back, 65,75,20,22)
     API.screen()
 end
@@ -25,19 +24,6 @@ function getClick()
     end
 end
 
-function boot()
-    API.clear()
-    os.execute("/bluos/boot")
-end
-
-function adminBoot()
-
-end
-
-function options()
-
-end
-
 function back()
     API.clear()
     os.exit()
@@ -47,7 +33,7 @@ term.setCursorBlink(false)
 gpu.resolution(80, 25)
 API.clear()
 API.fillTable()
-API.heading("BluOS Boot Menu")
+API.heading("BluOS Booting")
 
 while true do
     getClick()

@@ -9,6 +9,11 @@ if not component.internet.isHttpEnabled() then
     local inp=io.read()
     os.exit()
 end
+
+os.execute("mkdir /bluos")
+
 print("downloading GUI-API")
-os.execute("wget -f https://github.com/ /lib/buttonAPI.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/blob/master/bluos/lib/buttonAPI.lua /lib/buttonAPI.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/blob/master/bluos/bluos.lua bluos.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/blob/master/bluos/boot.lua /bluos/bluos.lua")
 print("download finished")
