@@ -44,7 +44,7 @@ function back()
 end
 
 term.setCursorBlink(false)
-gpu.resolution(80, 25)
+gpu.setResolution(80, 25)
 API.clear()
 API.fillTable()
 API.heading("BluOS Boot Menu")

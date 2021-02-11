@@ -12,8 +12,8 @@ end
 
 os.execute("mkdir /bluos")
 
-print("downloading GUI-API")
-os.execute("wget -f https://github.com/blueblock6/bluos/blob/master/bluos/lib/buttonAPI.lua /lib/buttonAPI.lua")
-os.execute("wget -f https://github.com/blueblock6/bluos/blob/master/bluos/bluos.lua bluos.lua")
-os.execute("wget -f https://github.com/blueblock6/bluos/blob/master/bluos/boot.lua /bluos/bluos.lua")
+print("Downloading BluOS")
+os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/lib/buttonAPI.lua /lib/buttonAPI.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/bluos.lua /home/bluos.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/boot.lua /bluos/boot.lua")
 print("download finished")
