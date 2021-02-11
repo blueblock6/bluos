@@ -27,11 +27,13 @@ end
 
 function boot()
     API.clear()
+    API.clearTable()
     os.execute("/bluos/boot")
 end
 
 function devBoot()
     API.clear()
+    API.clearTable()
     os.execute("/bluos/devBoot")
 end
 
