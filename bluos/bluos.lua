@@ -26,12 +26,10 @@ function getClick()
 end
 
 function boot()
-    API.clear()
     os.execute("/bluos/boot")
 end
 
 function devBoot()
-    API.clear()
     os.execute("/bluos/devBoot")
 end
 
