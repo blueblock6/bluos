@@ -1,0 +1,6 @@
+print("Uninstalling BluOS")
+os.execute("rm /lib/buttonAPI.lua")
+os.execute("rm /home/bluos.lua")
+os.execute("rm /bluos/boot.lua")
+os.execute("rm /bluos/devBoot.lua")
+print("Uninstall finished")
