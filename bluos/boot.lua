@@ -8,6 +8,8 @@ local colors = require("colors")
 
 resolution(80, 25)
 
+print("henlo")
+
 function API.fillTable()
     API.setTable("Back", back, 65,75,20,22)
     API.screen()
