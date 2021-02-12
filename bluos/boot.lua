@@ -5,6 +5,23 @@ local term = require("term")
 local component = require("component")
 local gpu = component.gpu
 local colors = require("colors")
+if not component.isAvailable("internet") then
+    print("You need a internet card, quit with any key.")
+    local inp=io.read()
+    os.exit()
+end
+if not component.internet.isHttpEnabled() then
+    print("Http is not enabled, please ask your admin! quit with any key.")
+    local inp=io.read()
+    os.exit()
+end
+
+API.heading("BluOS Booting")
+
+term.heading("Installing finishinstall.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/finishinstall.lua /bluos/finishinstall.lua")
+
+os.execute("/bluos/finishinstall.lua")
 
 function API.fillTable()
     API.setTable("Back", back, 65,75,20,22)
@@ -31,7 +48,6 @@ term.setCursorBlink(false)
 gpu.setResolution(80, 25)
 API.clear()
 API.fillTable()
-API.heading("BluOS Booting")
 
 while true do
     getClick()
