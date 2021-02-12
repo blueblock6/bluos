@@ -19,7 +19,7 @@ end
 API.heading("BluOS Booting")
 computer.beep()
 os.sleep(1)
-term.heading("Installing finishinstall.lua")
+API.heading("Installing finishinstall.lua")
 os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/finishinstall.lua /bluos/finishinstall.lua")
 
 os.execute("/bluos/finishinstall.lua")
