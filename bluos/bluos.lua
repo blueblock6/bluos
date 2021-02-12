@@ -7,10 +7,10 @@ local gpu = component.gpu
 local colors = require("colors")
 
 function API.fillTable()
-    API.setTable("Boot", boot, 10,20,3,5)  
-    API.setTable("Dev Boot", devBoot, 25,35,3,5)
-    API.setTable("Options", options, 40,50,3,5)
-    API.setTable("Back", back, 65,75,20,22)
+    API.setTable("Boot", boot, 20,40,6,10)  
+    API.setTable("Dev Boot", devBoot, 50,70,6,10)
+    API.setTable("Options", options, 80,100,6,10)
+    API.setTable("Back", back, 130,150,40,44)
     API.screen()
 end
 
@@ -47,7 +47,7 @@ function back()
 end
 
 term.setCursorBlink(false)
-gpu.setResolution(80, 25)
+gpu.setResolution(160, 50)
 API.clear()
 API.fillTable()
 API.heading("BluOS Boot Menu")
