@@ -19,13 +19,14 @@ end
 API.heading("BluOS Booting")
 computer.beep()
 os.sleep(1)
-API.heading("Installing finishinstall.lua")
-os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/finishinstall.lua /bluos/finishinstall.lua")
-
+if not isAvailable("finishInstall") then
+  API.heading("Installing finishinstall.lua")
+  os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/finishinstall.lua /bluos/finishinstall.lua")
+end
 os.execute("/bluos/finishinstall.lua")
 
 function API.fillTable()
-    API.setTable("Back", back, 65,75,20,22)
+    API.setTable("Back", back, 130,150,40,44)
     API.screen()
 end
 
@@ -46,7 +47,7 @@ function back()
 end
 
 term.setCursorBlink(false)
-gpu.setResolution(80, 25)
+gpu.setResolution(160, 50)
 API.clear()
 API.fillTable()
 
