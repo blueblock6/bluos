@@ -16,10 +16,21 @@ if not component.internet.isHttpEnabled() then
     os.exit()
 end
 
+function isFile(name)
+  if type(name)~="string" then return false end
+  if not exists(name) then return false end
+  local f = io.open(name)
+  if f then
+    f:close()
+    return true
+  end
+  return false
+end
+
 API.heading("BluOS Booting")
 computer.beep()
 os.sleep(1)
-if os.isfile("/bluos/finishinstall.lua") then
+if not isFile("/bluos/finishinstall.lua")
   API.heading("Installing finishinstall.lua")
   os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/finishinstall.lua /bluos/finishinstall.lua")
 end
