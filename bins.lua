@@ -17,4 +17,6 @@ os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/lib/but
 os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/bluos.lua /home/bluos.lua")
 os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/boot.lua /bluos/boot.lua")
 os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/devBoot.lua /bluos/devBoot.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/options.lua /bluos/options.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/bootoptions.lua /bluos/bootoptions.lua")
 print("download finished")
