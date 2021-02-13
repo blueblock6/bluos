@@ -5,6 +5,7 @@ local term = require("term")
 local component = require("component")
 local gpu = component.gpu
 local colors = require("colors")
+local filesystem = component.filesystem
 if not component.isAvailable("internet") then
     print("You need a internet card, quit with any key.")
     local inp=io.read()
@@ -19,7 +20,7 @@ end
 API.heading("BluOS Booting")
 computer.beep()
 os.sleep(1)
-if filesystem.exists("/bluos/finishinstall.lua") == true then
+if filesystem.exists("/bluos/finishinstall.lua") == false then
   API.heading("Installing finishinstall.lua")
   os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/finishinstall.lua /bluos/finishinstall.lua")
 end
