@@ -21,13 +21,12 @@ API.heading("BluOS Booting (DEV)")
 computer.beep()
 os.sleep(1)
 if filesystem.exists("/bluos/finishinstall.lua") == false then
-  API.heading("Installing finishinstall.lua")
+  API.heading("Installing finishinstall.lua ")
   os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/finishinstall.lua /bluos/finishinstall.lua")
 end
-os.execute("/bluos/finishinstall.lua")
 
 function API.fillTable()
-    API.setTable("Back", back, 130,150,40,44)
+    API.setTable("Back", back, 130, 150, 40, 44)
     API.screen()
 end
 
