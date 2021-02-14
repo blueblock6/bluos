@@ -98,4 +98,4 @@ return API
  
  
  
--- THIS API WAS MADE BY EOF -> https://oc.cil.li/topic/255-button-api-now-for-oc-updated-9-6-2014/
+-- THIS API WAS MADE BY EOF -> https://oc.cil.li/topic/255-button-api-now-for-oc-updated-9-6-2014/ (I MADE SOME MODIFICATIONS BUT PROPS TO HIM!)

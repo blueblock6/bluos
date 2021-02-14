@@ -33,7 +33,7 @@ function boot()
     API.clear()
     API.clearTable()
     if not pcall(os.execute("/bluos/boot")) then
-        print("Oops! There was an error!")
+        print("Oops! There was an error! Must be a missing file!")
         os.exit()
     end
 end
