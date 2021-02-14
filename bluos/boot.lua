@@ -44,8 +44,10 @@ function getClick()
 end
 
 function back()
-    API.clear()
-    os.exit()
+  API.flash("Back", 0.3)
+  os.sleep(0.2)
+  API.clear()
+  os.exit()
 end
 
 term.setCursorBlink(false)

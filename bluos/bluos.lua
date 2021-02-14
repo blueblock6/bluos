@@ -28,17 +28,15 @@ function getClick()
 end
 
 function boot()
-    API.flash("Boot", 0.1)
+    API.flash("Boot", 0.3)
     os.sleep(0.2)
     API.clear()
     API.clearTable()
-    if not pcall(os.execute("/bluos/boot")) then
-        os.exit()
-    end
+    os.execute("/bluos/boot")
 end
 
 function devBoot()
-    API.flash("Dev Boot", 0.1)
+    API.flash("Dev Boot", 0.3)
     os.sleep(0.2)
     API.clear()
     API.clearTable()
@@ -46,12 +44,12 @@ function devBoot()
 end
 
 function options()
-    API.flash("Options", 0.1)
+    API.flash("Options", 0.3)
     os.sleep(0.2)
 end
 
 function back()
-    API.flash("Back", 0.1)
+    API.flash("Back", 0.3)
     os.sleep(0.2)
     API.clear()
     os.exit()
