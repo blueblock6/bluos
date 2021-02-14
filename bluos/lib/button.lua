@@ -1,11 +1,12 @@
 local API = {}
-local button={}
+local button = {}
  
 local component = require("component")
 local colors = require("colors")
 local term = require("term")
 local mon = component.gpu
 local w, h = mon.getResolution()
+local Black = 0x000000
  
 buttonStatus = nil
  
@@ -19,7 +20,7 @@ function API.clearTable()
   API.clear()
 end
                
-function API.setTable(name, func, xmin, xmax, ymin, ymax, oncolor, offcolor, unavailablecolor, unav)
+function API.setTable(name, func, xmin, xmax, ymin, ymax, oncolor, offcolor, unav)
   button[name] = {}
   button[name]["func"] = func
   button[name]["active"] = false
@@ -29,25 +30,25 @@ function API.setTable(name, func, xmin, xmax, ymin, ymax, oncolor, offcolor, una
   button[name]["ymax"] = ymax
   button[name]["oncolor"] = oncolor
   button[name]["offcolor"] = offcolor
-  button[name]["unavailablecolor"] = unavailablecolor
   button[name]["unav"] = unav
 end
  
 function API.fill(text, color, bData)
   local yspot = math.floor((bData["ymin"] + bData["ymax"]) /2)
   local xspot = math.floor((bData["xmax"] + bData["xmin"] - string.len(text)) /2)+1
-  local oncolor = 
   local oldColor = mon.setBackground(color)
   mon.fill(bData["xmin"], bData["ymin"], (bData["xmax"]-bData["xmin"]+1), (bData["ymax"]-bData["ymin"]+1), " ")
   mon.set(xspot, yspot, text)
   mon.setBackground(oldColor)
 end
-     
+
 function API.screen()
   local currColor
   for name,data in pairs(button) do
     local on = data["active"]
-    if on == true then currColor = data["oncolor"] else if unav == 0 then currColor = data["offcolor"] else currColor = data["unavailablecolor"] end
+    if on == true then currColor = data["oncolor"] end
+    if on == false then currColor = data["offcolor"] end
+    if unav == 1 then currColor = 0x808080 end
     API.fill(name, currColor, data)
   end
 end
@@ -67,17 +68,17 @@ function API.flash(name,length)
 end
                                              
 function API.checkxy(x, y)
-  for name, data in pairs(button) do
-    if y>=data["ymin"] and  y <= data["ymax"] then
-      if x>=data["xmin"] and x<= data["xmax"] then
-        if data["unav"] == 0 then
-            data["func"]()
-            return true
+    for name, data in pairs(button) do
+        if y>=data["ymin"] and  y <= data["ymax"] then
+            if x>=data["xmin"] and x<= data["xmax"] then
+                if data["unav"] == 0 then
+                    data["func"]()
+                    return true
+                end
+            end
         end
-      end
     end
-  end
-  return false
+    return false
 end
      
 function API.heading(text)
@@ -92,9 +93,3 @@ function API.label(w, h, text)
 end
  
 return API
- 
- 
- 
- 
- 
--- THIS API WAS MADE BY EOF -> https://oc.cil.li/topic/255-button-api-now-for-oc-updated-9-6-2014/

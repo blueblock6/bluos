@@ -5,12 +5,14 @@ local term = require("term")
 local component = require("component")
 local gpu = component.gpu
 local colors = require("colors")
+local Green = 0x00AA00
+local Red = 0xAA0000
 
 function API.fillTable()
-    API.setTable("Boot", boot, 20, 40, 6, 10, colors.green, colors.red, colors.gray, 0)  
-    API.setTable("Dev Boot", devBoot, 50, 70, 6, 10, colors.green, colors.red, colors.gray, 1)
-    API.setTable("Options", options, 80, 100, 6, 10, colors.green, colors.red, colors.gray, 0)
-    API.setTable("Back", back, 130, 150, 40, 44, colors.green, colors.red, colors.gray, 0)
+    API.setTable("Boot", boot, 20, 40, 6, 10, Green, Red, 0)  
+    API.setTable("Dev Boot", devBoot, 50, 70, 6, 10, Green, Red, 1)
+    API.setTable("Options", options, 80, 100, 6, 10, Green, Red, 0)
+    API.setTable("Back", back, 130, 150, 40, 44, Green, Red, 0)
     API.screen()
 end
 
