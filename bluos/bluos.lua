@@ -33,7 +33,6 @@ function boot()
     API.clear()
     API.clearTable()
     if not pcall(os.execute("/bluos/boot")) then
-        print("Oops! There was an error! Must be a missing file!")
         os.exit()
     end
 end
@@ -47,8 +46,8 @@ function devBoot()
 end
 
 function options()
-    os.sleep(0.2)
     API.flash("Options", 0.1)
+    os.sleep(0.2)
 end
 
 function back()

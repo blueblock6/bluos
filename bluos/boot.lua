@@ -6,6 +6,8 @@ local component = require("component")
 local gpu = component.gpu
 local colors = require("colors")
 local filesystem = component.filesystem
+local Green = 0x00AA00
+local Red = 0xAA0000
 if not component.isAvailable("internet") then
     print("You need a internet card, quit with any key.")
     local inp=io.read()
@@ -26,7 +28,7 @@ if filesystem.exists("/bluos/finishinstall.lua") == false then
 end
 
 function API.fillTable()
-    API.setTable("Back", back, 130, 150, 40, 44)
+    API.setTable("Back", back, 130, 150, 40, 44, 0, Green, Red)
     API.screen()
 end
 

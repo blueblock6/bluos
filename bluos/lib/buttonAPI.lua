@@ -13,7 +13,7 @@ buttonStatus = nil
  
 function API.clear()
   mon.setBackground(Black)
-  mon.fill(1, 1, w, h, " ")
+  mon.fill(1, 1, w, h, " ")a
 end
  
 function API.clearTable()
