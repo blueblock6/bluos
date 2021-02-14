@@ -1,4 +1,4 @@
-API = require("button")
+API = require("buttonAPI")
 local event = require("event")
 local computer = require("computer")
 local term = require("term")
@@ -9,10 +9,10 @@ local Green = 0x00AA00
 local Red = 0xAA0000
 
 function API.fillTable()
-    API.setTable("Boot", boot, 20, 40, 6, 10, Green, Red, 0)  
-    API.setTable("Dev Boot", devBoot, 50, 70, 6, 10, Green, Red, 1)
-    API.setTable("Options", options, 80, 100, 6, 10, Green, Red, 0)
-    API.setTable("Back", back, 130, 150, 40, 44, Green, Red, 0)
+    API.setTable("Boot", boot, 20, 40, 6, 10, 0, Green, Red)  
+    API.setTable("Dev Boot", devBoot, 50, 70, 6, 10, 1, Green, Red)
+    API.setTable("Options", options, 80, 100, 6, 10, 1, Green, Red)
+    API.setTable("Back", back, 130, 150, 40, 44, 0, Green, Red)
     API.screen()
 end
 
@@ -28,22 +28,32 @@ function getClick()
 end
 
 function boot()
+    API.flash("Boot", 0.1)
+    os.sleep(0.2)
     API.clear()
     API.clearTable()
-    os.execute("/bluos/boot")
+    if not pcall(os.execute("/bluos/boot")) then
+        print("Oops! There was an error!")
+        os.exit()
+    end
 end
 
 function devBoot()
+    API.flash("Dev Boot", 0.1)
+    os.sleep(0.2)
     API.clear()
     API.clearTable()
     os.execute("/bluos/devBoot")
 end
 
 function options()
-
+    os.sleep(0.2)
+    API.flash("Options", 0.1)
 end
 
 function back()
+    API.flash("Back", 0.1)
+    os.sleep(0.2)
     API.clear()
     os.exit()
 end

@@ -6,9 +6,8 @@ local colors = require("colors")
 local term = require("term")
 local mon = component.gpu
 local w, h = mon.getResolution()
-local Green = 0x00AA00
-local Red = 0xAA0000
 local Black = 0x000000
+local Gray = 0xA9A9A9
  
 buttonStatus = nil
  
@@ -22,7 +21,7 @@ function API.clearTable()
   API.clear()
 end
                
-function API.setTable(name, func, xmin, xmax, ymin, ymax)
+function API.setTable(name, func, xmin, xmax, ymin, ymax, unav, oncolor, offcolor)
   button[name] = {}
   button[name]["func"] = func
   button[name]["active"] = false
@@ -30,6 +29,9 @@ function API.setTable(name, func, xmin, xmax, ymin, ymax)
   button[name]["ymin"] = ymin
   button[name]["xmax"] = xmax
   button[name]["ymax"] = ymax
+  button[name]["unav"] = unav
+  button[name]["oncolor"] = oncolor
+  button[name]["offcolor"] = offcolor
 end
  
 function API.fill(text, color, bData)
@@ -45,7 +47,8 @@ function API.screen()
   local currColor
   for name,data in pairs(button) do
     local on = data["active"]
-    if on == true then currColor = Green else currColor = Red end
+    if data["unav"] == 0 then if on == true then currColor = data["oncolor"] else currColor = data["offcolor"] end end
+    if data["unav"] == 1 then currColor = Gray end
     API.fill(name, currColor, data)
   end
 end
@@ -68,8 +71,10 @@ function API.checkxy(x, y)
   for name, data in pairs(button) do
     if y>=data["ymin"] and  y <= data["ymax"] then
       if x>=data["xmin"] and x<= data["xmax"] then
-        data["func"]()
+        if data["unav"] == 0 then
+          data["func"]()
           return true
+        end
       end
     end
   end
