@@ -11,6 +11,10 @@ if not component.internet.isHttpEnabled() then
 end
 
 os.execute("mkdir /bluos")
+os.execute("mkdir /bluos/modules")
+os.execute("mkdir /bluos/modules/nuclearcraft")
+os.execute("mkdir /bluos/modules/mekanism")
+os.execute("mkdir /bluos/modules/appliedenergistics")
 
 print("Downloading BluOS")
 os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/lib/buttonAPI.lua /lib/buttonAPI.lua")
@@ -19,4 +23,7 @@ os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/boot.lu
 os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/devBoot.lua /bluos/devBoot.lua")
 os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/options.lua /bluos/options.lua")
 os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/bootoptions.lua /bluos/bootoptions.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/modules/nuclearcraft/main.lua /bluos/modules/nuclearcraft/main.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/modules/mekanism/main.lua /bluos/modules/mekanism/main.lua")
+os.execute("wget -f https://github.com/blueblock6/bluos/raw/master/bluos/modules/appliedenergistics/main.lua /bluos/modules/appliedenergistics/main.lua")
 print("download finished")
